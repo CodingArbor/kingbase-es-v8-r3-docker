@@ -1,0 +1,14 @@
+version: '3.3'
+services:
+    kingbase:
+        container_name: kingbase
+        ports:
+            - '54321:54321'
+        privileged: true
+        environment:
+            - SYSTEM_PWD=SYSTEM
+            - CASE_INSENSITIVE=true
+        volumes:
+            - '/opt/kingbase/data:/opt/kingbase/data'
+            - '/data/kingbase/license.dat:/opt/kingbase/Server/bin/license.dat'
+        image: 'kingbase:v8r3'

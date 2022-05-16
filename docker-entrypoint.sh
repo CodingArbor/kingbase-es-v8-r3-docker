@@ -17,8 +17,12 @@ db_init(){
   mkdir -p ${DATA_DIR}
   chown -R kingbase:kingbase ${DATA_DIR}
   cd ${DB_PATH}/Server/bin/
-  extraParams="--encoding=UTF8 --case-insensitive"
-  ./initdb -USYSTEM -W${SYSTEM_PWD-123456} -E UTF8 ${DATA_DIR} ${extraParams}
+
+  if [ "${CASE_INSENSITIVE}" == "true" ];then
+	su -c './initdb -USYSTEM -W SYSTEM -E UTF8 -D /opt/kingbase/data --case-insensitive' kingbase
+  else
+	su -c './initdb -USYSTEM -W SYSTEM -E UTF8 -D /opt/kingbase/data' kingbase
+  fi
 }
 
 check_is_init
@@ -32,10 +36,11 @@ fi
 
 if [ -f "${DB_PATH}/Server/bin/license.dat" ];then
   cp ${DB_PATH}/Server/bin/license.dat ${DB_PATH}/
+  chown -R kingbase:kingbase ${DB_PATH}/license.dat
 fi
 
-${DB_PATH}/Server/bin/sys_ctl -D ${DATA_DIR} -l ${LOG_FILE} start
+su -c '/opt/kingbase/Server/bin/sys_ctl -D /opt/kingbase/data -l /opt/kingbase/logfile start' kingbase
 
-sleep 15
+sleep 10
 
 exec tail -f ${LOG_FILE}

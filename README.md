@@ -14,7 +14,9 @@
 ### Docker Hub
 
 [https://hub.docker.com/r/dockerarbor/kingbase](https://github.com/renfei/kingbase-es-v8-r3-docker/pkgs/container/kingbase)
-
+```bash
+docker pull dockerarbor/kingbase
+```
 ## 构建镜像
 
 如果您想自己构建镜像可参照以下操作：

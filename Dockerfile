@@ -1,5 +1,5 @@
 FROM centos:7
-MAINTAINER RenFei <i@renfei.net>
+MAINTAINER Arbor <453265313@qq.com>
 
 RUN groupadd kingbase && useradd -g kingbase -m -d /opt/kingbase -s /bin/bash kingbase
 
@@ -17,7 +17,7 @@ ENV PATH /opt/kingbase/Server/bin:$PATH
 
 ENV DB_VERSION V008R003C002B0320
 
-USER kingbase
+USER root
 
 EXPOSE 54321
 

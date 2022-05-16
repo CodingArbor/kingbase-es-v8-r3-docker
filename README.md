@@ -30,7 +30,7 @@ docker build -t kingbase:v8r3 .
 ## 运行
 
 ```bash
-docker run -d --name kingbase -p 54321:54321 -e SYSTEM_PWD=SYSTEM CASE_INSENSITIVE=true -v /opt/kingbase/data:/opt/kingbase/data -v /opt/kingbase/license.dat:/opt/kingbase/Server/bin/license.dat kingbase:v8r3
+docker run -d --name kingbase -p 54321:54321 -e SYSTEM_PWD=SYSTEM -e CASE_INSENSITIVE=true -v /opt/kingbase/data:/opt/kingbase/data -v /opt/kingbase/license.dat:/opt/kingbase/Server/bin/license.dat kingbase:v8r3
 ```
 
 - --name: 容器名称

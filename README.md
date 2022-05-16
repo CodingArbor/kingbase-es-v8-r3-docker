@@ -13,7 +13,7 @@
 
 ### Docker Hub
 
-[https://hub.docker.com/r/dockerarbor/kingbase](https://github.com/renfei/kingbase-es-v8-r3-docker/pkgs/container/kingbase)
+[https://hub.docker.com/r/dockerarbor/kingbase](https://hub.docker.com/r/dockerarbor/kingbase)
 ```bash
 docker pull dockerarbor/kingbase
 ```
